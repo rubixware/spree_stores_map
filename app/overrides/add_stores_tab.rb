@@ -1,6 +1,5 @@
-Deface::Override.new(
-  :virtual_path => 'spree/admin/shared/_product_sub_menu',
-  :name => 'add_stores_tab',
-  :insert_bottom => "ul#sub_nav",
-  :text => "<%= tab :stores %>"
-)
+Deface::Override.new(:virtual_path => "spree/admin/shared/_menu",
+                     :name => "stores_admin_tabs",
+                     :insert_bottom => "[data-hook='admin_tabs'], #admin_tabs[data-hook]",
+                     :text => "<%= tab(:stores, :label => 'Stores', :url => spree.admin_stores_path, :icon => 'file') %>",
+                     :disabled => false)
