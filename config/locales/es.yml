@@ -1,0 +1,6 @@
+es:
+  stores: Tiendas
+  name: nombre
+  address: direccion
+  phone: telefono
+  website: sitio web

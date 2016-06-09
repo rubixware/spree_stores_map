@@ -1,0 +1,28 @@
+<%= render :partial => 'sub_menu' %>
+<h1><%= t("stores")%></h1>
+<table class="index">
+  <tr>
+      <th><%= t("name") %></th>
+      <th><%= t("address") %></th>
+      <th><%= t("phone") %></th>
+      <th><%= t("website") %></th>
+  </tr>
+  <% @stores.each do |store| %>
+    <tr id="<%= dom_id store %>">
+      <%- locals = { :store => store } %>
+      <%= hook :admin_stores_index_rows, locals do %>
+        <td><%= store.name %></td>
+        <td><%= store.address %></td>
+        <td><%= store.phone %></td>
+        <td><%= store.website %></td>
+      <% end %>
+      <td class="actions">
+        <%= hook :admin_stores_index_row_actions, locals do %>
+          <%= link_to_edit store %>
+          &nbsp;
+          <%= link_to_delete store  %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
